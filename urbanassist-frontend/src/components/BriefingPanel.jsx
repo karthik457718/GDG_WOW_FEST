@@ -28,10 +28,10 @@ export default function BriefingPanel() {
   }, []);
 
   return (
-    <div className="premium-card" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+    <div className="cc-card" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)', fontWeight: 700, fontSize: '15px', fontFamily: 'var(--font-title)' }}>
-          <Sparkles size={18} style={{ color: 'var(--accent-color)' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#111827', fontWeight: 700, fontSize: '15px', fontFamily: 'var(--font-title)' }}>
+          <Sparkles size={18} style={{ color: '#3b82f6' }} />
           Commissioner's AI Briefing
         </div>
         <button
@@ -40,7 +40,7 @@ export default function BriefingPanel() {
           style={{
             background: 'transparent',
             border: 'none',
-            color: 'var(--text-secondary)',
+            color: '#6b7280',
             cursor: 'pointer',
             padding: '5px',
             borderRadius: '50%',
@@ -49,8 +49,8 @@ export default function BriefingPanel() {
             justifyContent: 'center',
             transition: 'color 0.3s'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#111827'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#6b7280'}
           title="Refresh briefing"
         >
           <RefreshCw size={14} className={loading ? 'spin-anim' : ''} />
@@ -58,13 +58,15 @@ export default function BriefingPanel() {
       </div>
 
       <div style={{
-        background: 'rgba(59, 130, 246, 0.03)',
-        borderLeft: '3px solid var(--accent-color)',
+        background: '#f9fafb',
+        borderLeft: '3px solid #3b82f6',
         padding: '15px',
-        borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
+        borderRadius: '0 8px 8px 0',
         minHeight: '80px',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        border: '1px solid #e5e7eb',
+        borderLeftWidth: '3px'
       }}>
         {loading ? (
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -73,12 +75,12 @@ export default function BriefingPanel() {
             <div className="shimmer-bar" style={{ width: '75%', height: '12px' }}></div>
           </div>
         ) : error ? (
-          <div style={{ display: 'flex', gap: '8px', color: 'var(--text-muted)', fontSize: '13px', alignItems: 'flex-start' }}>
-            <AlertCircle size={16} style={{ flexShrink: 0, marginTop: '2px', color: 'var(--color-medium)' }} />
+          <div style={{ display: 'flex', gap: '8px', color: '#ef4444', fontSize: '13px', alignItems: 'flex-start' }}>
+            <AlertCircle size={16} style={{ flexShrink: 0, marginTop: '2px', color: '#ef4444' }} />
             <span>{error}</span>
           </div>
         ) : (
-          <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-primary)', fontStyle: 'italic' }}>
+          <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#374151', fontStyle: 'italic', margin: 0 }}>
             "{briefing}"
           </p>
         )}
@@ -93,7 +95,7 @@ export default function BriefingPanel() {
           100% { transform: rotate(360deg); }
         }
         .shimmer-bar {
-          background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+          background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
           background-size: 200% 100%;
           animation: shimmer 1.5s infinite;
           border-radius: 4px;

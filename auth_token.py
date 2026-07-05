@@ -352,11 +352,6 @@ def send_otp_email(to_email, otp, purpose="signup"):
                    else (False, f"Brevo status {r.status}")
     except urllib.error.HTTPError as e:
         err_msg = e.read().decode('utf-8', 'ignore')
-        if e.code == 401 or "unrecognised" in err_msg.lower() or "unrecognized" in err_msg.lower() or "ip address" in err_msg.lower() or "unauthorized ip" in err_msg.lower():
-            print("\n" + "=" * 80)
-            print(f"  [BREVO IP BLOCK FALLBACK] OTP CODE FOR {to_email}: {otp}")
-            print("=" * 80 + "\n")
-            return True, "Verification code sent! Please check your inbox (for local development, check terminal console logs)."
         return False, f"Brevo error {e.code}: {err_msg[:200]}"
     except Exception as e:
         return False, f"Email failed: {e}"
@@ -398,8 +393,6 @@ def initiate_signup(username, email):
     if not ok:
         return False, msg
     store_otp(email, otp)
-    if "Code generated!" in msg:
-        return True, msg
     return True, f"Code sent to {email}"
 
 

@@ -62,9 +62,8 @@ export default function IncidentMap({ clusters, center }) {
         style={{ height: '100%', width: '100%', minHeight: '400px' }}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          className="dark-map-tiles"
+          attribution='&copy; <a href="https://maps.google.com">Google Maps</a>'
+          url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
         />
         <ChangeView center={center} />
 
